@@ -33,12 +33,12 @@ module Api
 
 
     # Use SameSite=Strict for all cookies to help protect against CSRF
-    config.action_dispatch.cookies_same_site_protection = :strict
-    
+    config.action_dispatch.cookies_same_site_protection = :none
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3001'
-        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+        origins 'http://localhost:3001', 'https://food-carty-api.onrender.com'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
       end
     end
     # Configuration for the application, engines, and railties goes here.
