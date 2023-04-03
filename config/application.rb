@@ -31,6 +31,7 @@ module Api
     config.middleware.use ActionDispatch::Cookies 
     config.middleware.use ActionDispatch::Session::CookieStore 
 
+    
 
     # Use SameSite=Strict for all cookies to help protect against CSRF
     config.action_dispatch.cookies_same_site_protection = :none
@@ -38,7 +39,7 @@ module Api
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'http://localhost:3001', 'https://food-carty-api.onrender.com', 'https://admirable-pie-7df123.netlify.app'
-        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true, expose: ['Access-Control-Allow-Origin']
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
       end
     end
     
